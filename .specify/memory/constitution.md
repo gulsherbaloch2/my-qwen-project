@@ -1,55 +1,45 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+Version change: N/A → 1.0.0
+Modified principles: N/A (new constitution)
+Added sections: All principles and sections (new constitution)
+Removed sections: N/A
+Templates requiring updates: ⚠ pending (.specify/templates/plan-template.md, .specify/templates/spec-template.md, .specify/templates/tasks-template.md)
+Follow-up TODOs: None
+-->
+
+# Qwen Code Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Spec-Driven Development (SDD)
+Every feature and change starts with a specification that clearly defines requirements, acceptance criteria, and constraints before implementation begins. Specifications must be testable and verifiable.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Authoritative Source Mandate
+Prioritize and use MCP tools and CLI commands for all information gathering and task execution. Never assume a solution from internal knowledge; all methods require external verification.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Prompt History Records (PHRs) for Every User Input
+Record every user input verbatim in a Prompt History Record (PHR) after every user message. Do not truncate; preserve full multiline input. PHRs must follow proper routing.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### Architectural Decision Records (ADRs)
+When architecturally significant decisions are detected, document reasoning and tradeoffs in an ADR. Decisions should consider long-term consequences, alternatives, and cross-cutting system design implications.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Human as Tool Strategy
+Treat the user as a specialized tool for clarification and decision-making when encountering ambiguous requirements, unforeseen dependencies, or architectural uncertainty. Ask targeted questions before proceeding.
 
-### [PRINCIPLE_6_NAME]
+### Execution Contract Adherence
+Follow the execution contract for every request which includes confirming surface and success criteria, listing constraints, producing artifacts with acceptance checks, adding follow-ups, and creating PHRs.
 
+## Security and Operational Standards
 
-[PRINCIPLE__DESCRIPTION]
+Never hardcode secrets or tokens; use .env and docs. Prefer the smallest viable diff; do not refactor unrelated code. Maintain security best practices throughout development.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Development Workflow
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+Clarify and plan first, keeping business understanding separate from technical plan. Cite existing code with code references. Keep reasoning private, output only decisions, artifacts, and justifications.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other practices. Amendments require documentation with proper versioning. All implementations must verify compliance with these principles.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-07 | **Last Amended**: 2025-12-07

@@ -1,0 +1,77 @@
+.banner {
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  position: relative;
+  overflow: hidden;
+  border-left: 4px solid;
+}
+
+.banner--primary {
+  background-color: #dbeafe;
+  border-left-color: #2563eb;
+}
+
+[data-theme='dark'] .banner--primary {
+  background-color: #1e3a8a;
+}
+
+.banner--secondary {
+  background-color: #f3f4f6;
+  border-left-color: #6b7280;
+}
+
+[data-theme='dark'] .banner--secondary {
+  background-color: #374151;
+}
+
+.banner--success {
+  background-color: #d1fae5;
+  border-left-color: #10b981;
+}
+
+[data-theme='dark'] .banner--success {
+  background-color: #064e3b;
+}
+
+.banner--warning {
+  background-color: #fef3c7;
+  border-left-color: #f59e0b;
+}
+
+[data-theme='dark'] .banner--warning {
+  background-color: #78350f;
+}
+
+.banner--danger {
+  background-color: #fee2e2;
+  border-left-color: #ef4444;
+}
+
+[data-theme='dark'] .banner--danger {
+  background-color: #7f1d1d;
+}
+
+.bannerHeader {
+  margin-bottom: 1rem;
+}
+
+.bannerTitle {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: inherit;
+}
+
+.bannerSubtitle {
+  margin: 0.5rem 0 0;
+  font-size: 1.1rem;
+  color: inherit;
+  opacity: 0.9;
+}
+
+.bannerBody {
+  padding-top: 1rem;
+  border-top: 1px solid currentColor;
+  opacity: 0.8;
+}

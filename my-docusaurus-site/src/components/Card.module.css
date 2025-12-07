@@ -1,0 +1,119 @@
+.card {
+  height: 100%;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: var(--ifm-global-shadow-lw);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.cardHeader {
+  padding: 1.5rem 1.5rem 0.5rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.cardIcon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.cardBody {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.cardDescription {
+  margin: 0 0 1rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.cardLink {
+  text-decoration: none;
+}
+
+.moduleCard {
+  height: 100%;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-global-radius);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+}
+
+[data-theme='dark'] .moduleCard {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+.moduleCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.moduleCardLink {
+  text-decoration: none;
+  display: block;
+  height: 100%;
+}
+
+.moduleCardHeader {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.moduleNumber {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.moduleTitle {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ifm-heading-color);
+}
+
+.moduleCardBody {
+  padding: 1.5rem;
+}
+
+.moduleDescription {
+  margin: 0 0 1rem;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+}
+
+.moduleCta {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  display: flex;
+  align-items: center;
+}
+
+.moduleCta::after {
+  content: "→";
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.moduleCard:hover .moduleCta::after {
+  transform: translateX(3px);
+}
+
+@media (max-width: 996px) {
+  .moduleCard {
+    margin-bottom: 1rem;
+  }
+}
