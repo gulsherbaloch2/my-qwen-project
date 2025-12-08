@@ -104,11 +104,36 @@
   box-shadow: var(--ifm-navbar-shadow);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.9) !important;
+  background-color: #2563eb !important; /* Changed to a solid primary color instead of translucent */
 }
 
 [data-theme='dark'] .navbar {
-  background-color: rgba(30, 41, 59, 0.9) !important;
+  background-color: #1e3a8a !important; /* Darker blue in dark mode */
+}
+
+/* Navbar toggle button styling for better visibility */
+.navbar__toggle {
+  color: white;
+}
+
+.navbar__toggle svg {
+  fill: white;
+  transition: transform 0.3s ease;
+}
+
+.navbar__toggle:hover svg {
+  transform: scale(1.1);
+}
+
+/* Mobile menu overlay for better UX */
+@media (max-width: 996px) {
+  .navbar-sidebar {
+    background-color: #2563eb;
+  }
+
+  [data-theme='dark'] .navbar-sidebar {
+    background-color: #1e3a8a;
+  }
 }
 
 /* Enhanced hero banner */
