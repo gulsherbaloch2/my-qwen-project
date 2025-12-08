@@ -109,6 +109,9 @@ const config: Config = {
           position: 'right',
         },
       ],
+      // Enable mobile sidebar toggle and responsive behavior
+      hideOnScroll: false,
+      style: 'primary',
     },
     footer: {
       style: 'dark',
