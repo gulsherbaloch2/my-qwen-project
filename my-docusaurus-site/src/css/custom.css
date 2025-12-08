@@ -82,6 +82,9 @@
   transition: all 0.2s ease;
   text-transform: none;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
 }
 
 .button:hover {
@@ -97,6 +100,17 @@
 .button--primary:hover {
   background-color: var(--ifm-color-primary-dark);
   border-color: var(--ifm-color-primary-dark);
+}
+
+/* Ensure buttons are clickable and not covered by other elements */
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Make sure buttons have proper pointer events */
+.buttons .button {
+  pointer-events: auto;
 }
 
 /* Enhanced navbar */
