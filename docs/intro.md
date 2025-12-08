@@ -1,21 +1,34 @@
 ---
-title: Introduction
-slug: /intro
+sidebar_position: 1
 ---
 
-# Introduction to Physical AI & Humanoid Robotics
+# Physical AI & Humanoid Robotics Curriculum
 
-Welcome to the comprehensive curriculum on Physical AI & Humanoid Robotics. This program is designed to provide you with in-depth knowledge and practical skills in the field of robotics, artificial intelligence, and their convergence.
+Welcome to the comprehensive curriculum on Physical AI & Humanoid Robotics! This program is designed to take you from foundational concepts to advanced topics in the convergence of artificial intelligence and robotics.
 
-## What You'll Learn
+## About This Curriculum
 
-This curriculum is structured into six comprehensive modules:
+This curriculum consists of 6 comprehensive modules that build upon each other to provide a complete understanding of physical AI and humanoid robotics:
 
-1. **Module 1: The Robotic Nervous System** - Understanding sensors and actuators that form the foundation of robotic systems
-2. **Module 2: The Robotic Brain** - Exploring AI and machine learning applications in robotics
-3. **Module 3: Robotic Motion and Control** - Learning about kinematics, dynamics, and motion planning
-4. **Module 4: Perception and Sensing** - Computer vision and sensor fusion for robot perception
-5. **Module 5: Learning and Adaptation** - Reinforcement and imitation learning for adaptive robots
-6. **Module 6: Human-Robot Interaction** - Social robotics and ethical considerations
+- **Module 1**: The Robotic Nervous System - Understanding sensors, actuators, and communication
+- **Module 2**: The Robotic Brain - AI, machine learning, and control systems
+- **Module 3**: Robotic Motion and Control - Kinematics, dynamics, and trajectory planning
+- **Module 4**: Perception and Sensing - Computer vision, sensor fusion, and environment mapping
+- **Module 5**: Learning and Adaptation - Reinforcement learning, imitation learning, and adaptive control
+- **Module 6**: Human-Robot Interaction - Social robotics, communication interfaces, safety, and ethics
 
-Each module contains detailed explanations, practical examples, and hands-on exercises to help you master these complex topics.
+## Learning Objectives
+
+By completing this curriculum, you will:
+- Understand the fundamental principles of robotic systems
+- Learn how AI enables intelligent robotic behavior
+- Master the mathematical foundations of robot motion and control
+- Gain expertise in robotic perception and environmental interaction
+- Explore cutting-edge techniques in robot learning and adaptation
+- Understand the critical aspects of safe and ethical human-robot interaction
+
+## How to Use This Resource
+
+Each module contains detailed explanations, practical examples, and real-world applications. We recommend progressing through the modules sequentially as they build upon each other. However, you can also explore specific topics based on your interests or needs.
+
+Begin with [Module 1: The Robotic Nervous System](./physical-ai-humanoid-robotics/module-1/introduction) to start your journey into Physical AI & Humanoid Robotics.
