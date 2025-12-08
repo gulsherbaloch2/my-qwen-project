@@ -1,37 +1,82 @@
 ---
-title: Physical AI & Humanoid Robotics Curriculum
-slug: /docs/physical-ai-humanoid-robotics/physical-ai-humanoid-robotics
+sidebar_position: 0
+slug: /physical-ai-humanoid-robotics
 ---
 
-# Physical AI & Humanoid Robotics Curriculum
+# Physical AI & Humanoid Robotics
 
-This comprehensive curriculum is designed to guide you through the fascinating world of physical AI and humanoid robotics. We'll explore how artificial intelligence and robotics converge to create systems that can perceive, learn, adapt, and interact with the physical world in increasingly sophisticated ways.
+## Complete Curriculum Overview
 
-## Curriculum Structure
+Welcome to the comprehensive Physical AI & Humanoid Robotics curriculum. This program provides an in-depth exploration of the cutting-edge intersection between artificial intelligence and robotics, designed for students, researchers, and professionals seeking to master these transformative technologies.
 
-The curriculum is organized into six interconnected modules that build upon each other to provide a comprehensive understanding:
+### Program Structure
 
-- **Module 1: The Robotic Nervous System** - Foundation of robotic perception and action
-- **Module 2: The Robotic Brain** - Intelligence and control systems
-- **Module 3: Robotic Motion and Control** - Kinematics and dynamics
-- **Module 4: Perception and Sensing** - How robots understand their environment
-- **Module 5: Learning and Adaptation** - AI techniques for adaptable robots
-- **Module 6: Human-Robot Interaction** - Communication and ethical considerations
+This curriculum is organized into six comprehensive modules, each focusing on a critical aspect of physical AI and humanoid robotics:
 
-## Prerequisites
+import {ModuleCard} from '@site/src/components/Card';
 
-To get the most from this curriculum, you should have:
+<div className="row">
+  <div className="col col--4 margin-bottom--lg">
+    <ModuleCard
+      number="1"
+      title="The Robotic Nervous System"
+      description="Understanding sensors, actuators, and communication systems that form the foundation of robotic perception and action."
+      to="/docs/physical-ai-humanoid-robotics/module-1/introduction"
+    />
+  </div>
+  <div className="col col--4 margin-bottom--lg">
+    <ModuleCard
+      number="2"
+      title="The Robotic Brain"
+      description="AI, machine learning, and control systems that enable intelligent robotic behavior and decision-making."
+      to="/docs/physical-ai-humanoid-robotics/module-2/introduction"
+    />
+  </div>
+  <div className="col col--4 margin-bottom--lg">
+    <ModuleCard
+      number="3"
+      title="Robotic Motion and Control"
+      description="Kinematics, dynamics, and trajectory planning for precise and efficient robotic movement."
+      to="/docs/physical-ai-humanoid-robotics/module-3/introduction"
+    />
+  </div>
+</div>
 
-- Basic understanding of programming (preferably Python)
-- Fundamental knowledge of calculus and linear algebra
-- Basic understanding of probability and statistics
-- Familiarity with machine learning concepts is beneficial but not required
+<div className="row">
+  <div className="col col--4 margin-bottom--lg">
+    <ModuleCard
+      number="4"
+      title="Perception and Sensing"
+      description="Computer vision, sensor fusion, and environment mapping for robotic awareness."
+      to="/docs/physical-ai-humanoid-robotics/module-4/introduction"
+    />
+  </div>
+  <div className="col col--4 margin-bottom--lg">
+    <ModuleCard
+      number="5"
+      title="Learning and Adaptation"
+      description="Reinforcement learning, imitation learning, and adaptive control techniques."
+      to="/docs/physical-ai-humanoid-robotics/module-5/introduction"
+    />
+  </div>
+  <div className="col col--4 margin-bottom--lg">
+    <ModuleCard
+      number="6"
+      title="Human-Robot Interaction"
+      description="Social robotics, communication interfaces, safety, and ethical considerations."
+      to="/docs/physical-ai-humanoid-robotics/module-6/introduction"
+    />
+  </div>
+</div>
 
-## Learning Approach
+### Learning Outcomes
 
-This curriculum combines theoretical concepts with practical implementations. Each module includes:
+By completing this curriculum, you will gain expertise in:
 
-- Detailed explanations of core concepts
-- Code examples and implementation guides
-- Exercises and challenges
-- Research papers and additional resources
+- Fundamental principles of robotic systems and their components
+- Advanced AI and machine learning techniques applied to robotics
+- Mathematical foundations for robot motion, control, and perception
+- Techniques for robot learning and adaptation
+- Safe and ethical human-robot interaction principles
+
+Each module builds upon the previous, providing a comprehensive understanding of how artificial intelligence and robotics converge to create intelligent physical systems.
