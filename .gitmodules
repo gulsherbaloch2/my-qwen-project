@@ -1,0 +1,3 @@
+[submodule "mcp-use-cli"]
+	path = mcp-use-cli
+	url = https://github.com/mcp-use/mcp-use-cli.git
