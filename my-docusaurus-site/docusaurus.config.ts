@@ -97,11 +97,6 @@ const config: Config = {
           position: 'left',
           label: 'Modules',
         },
-        {
-          to: '/docs/physical-ai-humanoid-robotics/physical-ai-humanoid-robotics',
-          position: 'left',
-          label: 'Curriculum',
-        },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/gulsherbaloch2/hakathon1',
@@ -141,8 +136,8 @@ const config: Config = {
               href: 'https://github.com/gulsherbaloch2/hakathon1',
             },
             {
-              label: 'Documentation',
-              to: '/docs/physical-ai-humanoid-robotics/intro',
+              label: 'Modules',
+              to: '/docs/physical-ai-humanoid-robotics/module-1/introduction',
             },
             {
               label: 'Blog',

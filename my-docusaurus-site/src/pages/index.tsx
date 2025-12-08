@@ -30,7 +30,7 @@ function HomepageHeader() {
             </Link>
             <Link
               className="button button--secondary button--lg margin-left--md"
-              to="/docs/physical-ai-humanoid-robotics/physical-ai-humanoid-robotics">
+              to="/docs/physical-ai-humanoid-robotics/module-1/introduction">
               Explore Modules
             </Link>
           </div>
