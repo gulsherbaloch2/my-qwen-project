@@ -432,10 +432,59 @@ html {
 /* Enhanced mobile menu */
 .navbar-sidebar {
   padding: 1rem;
+  background-color: var(--ifm-navbar-background-color);
 }
 
 .navbar-sidebar .menu {
   padding: 1rem 0;
+}
+
+/* Mobile sidebar toggle fix */
+@media (max-width: 996px) {
+  .navbar-sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+  }
+
+  .navbar-sidebar .menu {
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .navbar-sidebar--show {
+    left: 0;
+  }
+}
+
+/* Mobile button improvements */
+@media (max-width: 768px) {
+  .button {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Make sure buttons are properly clickable on mobile */
+  .button {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Ensure proper z-index for mobile menu */
+.navbar__toggle {
+  z-index: 1001;
 }
 
 /* Better responsive behavior for code blocks */
