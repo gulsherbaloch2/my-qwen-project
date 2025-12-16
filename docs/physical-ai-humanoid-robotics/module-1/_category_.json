@@ -1,8 +1,0 @@
-{
-  "label": "Module 1: The Robotic Nervous System",
-  "position": 1,
-  "link": {
-    "type": "generated-index",
-    "description": "Understanding the foundational components of robotic control: sensors, actuators, and communication."
-  }
-}

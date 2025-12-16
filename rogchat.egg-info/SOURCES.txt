@@ -1,8 +1,0 @@
-README.md
-main.py
-pyproject.toml
-rogchat.egg-info/PKG-INFO
-rogchat.egg-info/SOURCES.txt
-rogchat.egg-info/dependency_links.txt
-rogchat.egg-info/requires.txt
-rogchat.egg-info/top_level.txt
