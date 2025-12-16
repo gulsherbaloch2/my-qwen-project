@@ -94,6 +94,13 @@ const sidebars: SidebarsConfig = {
         'physical-ai-humanoid-robotics/module-6/safety-ethics',
       ],
     },
+    {
+      type: 'category',
+      label: 'AI Assistant Guide',
+      items: [
+        'ai-assistant-integration',
+      ],
+    },
   ],
 };
 

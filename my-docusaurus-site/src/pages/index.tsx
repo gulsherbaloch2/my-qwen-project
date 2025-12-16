@@ -67,14 +67,16 @@ export default function Home(): ReactNode {
       description="Comprehensive curriculum on Physical AI & Humanoid Robotics - From sensors and actuators to human-robot interaction">
       <HomepageHeader />
       <main>
-        <Banner
-          title="Welcome to the Future of Robotics Education"
-          subtitle="Cutting-edge curriculum developed by industry experts">
-          <p>Our comprehensive program bridges the gap between artificial intelligence and robotics, preparing you for the next generation of intelligent systems.</p>
-        </Banner>
+        <div className={styles.curriculumSection}>
+          <Banner
+            title="Welcome to the Future of Robotics Education"
+            subtitle="Cutting-edge curriculum developed by industry experts">
+            <p>Our comprehensive program bridges the gap between artificial intelligence and robotics, preparing you for the next generation of intelligent systems.</p>
+          </Banner>
 
-        <div className="container margin-vert--lg">
-          <Stats title="Curriculum Overview" items={statsData} />
+          <div className="container margin-vert--lg">
+            <Stats title="Curriculum Overview" items={statsData} />
+          </div>
         </div>
 
         <HomepageFeatures />

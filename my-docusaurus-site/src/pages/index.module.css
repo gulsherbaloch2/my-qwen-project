@@ -8,11 +8,31 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  background:
+    linear-gradient(rgba(11, 15, 26, 0.65), rgba(7, 11, 20, 0.75)),
+    url('/img/cyberpunk-corridor.svg') no-repeat center center;
+  background-size: cover;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
+    min-height: 70vh;
+    background:
+      linear-gradient(rgba(11, 15, 26, 0.7), rgba(7, 11, 20, 0.8)),
+      url('/img/cyberpunk-corridor.svg') no-repeat center center;
+    background-size: cover;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .heroBanner {
+    padding: 1.5rem;
+    min-height: 60vh;
   }
 }
 
@@ -20,6 +40,8 @@
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
+  z-index: 1;
+  position: relative;
 }
 
 .buttons {
@@ -39,5 +61,21 @@
   .buttons .button {
     width: 100%;
     margin-left: 0 !important;
+  }
+}
+
+/* Curriculum section with consistent cyberpunk theme */
+.curriculumSection {
+  background:
+    linear-gradient(rgba(11, 15, 26, 0.75), rgba(7, 11, 20, 0.85)),
+    url('/img/cyberpunk-corridor.svg') no-repeat center center;
+  background-size: cover;
+  padding: 4rem 0;
+  margin: 3rem 0;
+}
+
+@media screen and (max-width: 996px) {
+  .curriculumSection {
+    padding: 2rem 0;
   }
 }

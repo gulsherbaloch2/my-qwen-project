@@ -15,7 +15,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://gulsherbaloch2.github.io',
+  url: 'https://my-docusaurus-site-two.vercel.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For Vercel deployment, using root path
   baseUrl: '/',
@@ -72,7 +72,7 @@ const config: Config = {
 
   stylesheets: [
     {
-      href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
+      href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&family=Rajdhani:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap',
       type: 'text/css',
       rel: 'stylesheet',
     },
@@ -87,8 +87,8 @@ const config: Config = {
     navbar: {
       title: 'Physical AI & Robotics',
       logo: {
-        alt: 'Physical AI & Humanoid Robotics Logo',
-        src: 'img/logo.svg',
+        alt: 'Physical AI & Humanoid Robotics Cyberpunk Logo',
+        src: 'img/cyber-logo.svg',
       },
       items: [
         {
@@ -170,6 +170,10 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+
+  customFields: {
+    apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:8000',
+  },
 };
 
 export default config;

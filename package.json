@@ -5,6 +5,9 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
+      "frontend": "cd my-docusaurus-site && npx docusaurus start",
+  "backend": "cd backend && python run_backend.py",
+  "dev": "concurrently \"npm run frontend\" \"npm run backend\"",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -28,6 +31,7 @@
     "@docusaurus/module-type-aliases": "3.9.2",
     "@docusaurus/tsconfig": "3.9.2",
     "@docusaurus/types": "3.9.2",
+    "concurrently": "^9.2.1",
     "typescript": "~5.6.2"
   },
   "browserslist": {
@@ -46,3 +50,5 @@
     "node": ">=20.0"
   }
 }
+
+

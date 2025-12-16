@@ -1,0 +1,48 @@
+.chatbot-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: var(--ifm-gradient-primary);
+  color: white;
+  border: 1px solid var(--ifm-bg-glass-border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(128, 0, 128, 0.3);
+  z-index: 999;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: pulse-glow 2s infinite;
+}
+
+.chatbot-toggle-btn:hover {
+  transform: scale(1.1) rotate(10deg);
+  box-shadow:
+    0 6px 25px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(128, 0, 128, 0.5),
+    0 0 30px rgba(255, 0, 255, 0.5);
+}
+
+.chatbot-icon {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

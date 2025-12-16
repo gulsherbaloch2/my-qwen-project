@@ -1,0 +1,86 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Neon glow filter -->
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+      <feColorMatrix in="blur" type="matrix" values="
+        0 0 0 0 0
+        0 0 0 0 0.8
+        0 0 0 0 0.98
+        0 0 0 1 0" result="neon" />
+      <feBlend in="SourceGraphic" in2="neon" mode="screen" />
+    </filter>
+
+    <!-- Magenta glow filter -->
+    <filter id="magentaGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+      <feColorMatrix in="blur" type="matrix" values="
+        0 0 0 0 1
+        0 0 0 0 0.12
+        0 0 0 0 0.83
+        0 0 0 1 0" result="magenta" />
+      <feBlend in="SourceGraphic" in2="magenta" mode="screen" />
+    </filter>
+
+    <!-- Gradient for neural network -->
+    <linearGradient id="neuralGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00fff7" />
+      <stop offset="100%" stop-color="#ff2fd3" />
+    </linearGradient>
+  </defs>
+
+  <!-- Main background circle with subtle glow -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(0, 255, 247, 0.1)" stroke-width="2" />
+
+  <!-- Outer ring with circuit pattern -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="url(#neuralGradient)" stroke-width="1" stroke-dasharray="3,3" />
+
+  <!-- Central AI/core element -->
+  <g filter="url(#neonGlow)">
+    <!-- Main core -->
+    <circle cx="100" cy="100" r="30" fill="none" stroke="#00fff7" stroke-width="2" />
+    
+    <!-- Inner neural network nodes -->
+    <circle cx="85" cy="85" r="4" fill="#00fff7" />
+    <circle cx="115" cy="85" r="4" fill="#00fff7" />
+    <circle cx="85" cy="115" r="4" fill="#00fff7" />
+    <circle cx="115" cy="115" r="4" fill="#00fff7" />
+    <circle cx="100" cy="70" r="4" fill="#00fff7" />
+    <circle cx="100" cy="130" r="4" fill="#00fff7" />
+    <circle cx="70" cy="100" r="4" fill="#00fff7" />
+    <circle cx="130" cy="100" r="4" fill="#00fff7" />
+    
+    <!-- Neural connections -->
+    <line x1="85" y1="85" x2="115" y2="85" stroke="#00fff7" stroke-width="1" />
+    <line x1="85" y1="85" x2="85" y2="115" stroke="#00fff7" stroke-width="1" />
+    <line x1="85" y1="85" x2="100" y2="70" stroke="#00fff7" stroke-width="1" />
+    <line x1="115" y1="85" x2="115" y2="115" stroke="#00fff7" stroke-width="1" />
+    <line x1="115" y1="85" x2="100" y2="70" stroke="#00fff7" stroke-width="1" />
+    <line x1="85" y1="115" x2="100" y2="130" stroke="#00fff7" stroke-width="1" />
+    <line x1="115" y1="115" x2="100" y2="130" stroke="#00fff7" stroke-width="1" />
+    <line x1="70" y1="100" x2="130" y2="100" stroke="#00fff7" stroke-width="1" />
+    <line x1="85" y1="85" x2="70" y2="100" stroke="#00fff7" stroke-width="1" />
+    <line x1="115" y1="115" x2="130" y2="100" stroke="#00fff7" stroke-width="1" />
+  </g>
+
+  <!-- Additional circuit elements -->
+  <g filter="url(#magentaGlow)">
+    <circle cx="100" cy="50" r="8" fill="none" stroke="#ff2fd3" stroke-width="1" />
+    <circle cx="50" cy="100" r="8" fill="none" stroke="#ff2fd3" stroke-width="1" />
+    <circle cx="150" cy="100" r="8" fill="none" stroke="#ff2fd3" stroke-width="1" />
+    <circle cx="100" cy="150" r="8" fill="none" stroke="#ff2fd3" stroke-width="1" />
+  </g>
+
+  <!-- Glowing dots around the main circle -->
+  <g filter="url(#neonGlow)">
+    <circle cx="65" cy="65" r="2" fill="#7cff00" />
+    <circle cx="135" cy="65" r="2" fill="#7cff00" />
+    <circle cx="65" cy="135" r="2" fill="#7cff00" />
+    <circle cx="135" cy="135" r="2" fill="#7cff00" />
+  </g>
+
+  <!-- Text "AI" in cyberpunk style -->
+  <g filter="url(#neonGlow)" font-family="monospace" font-weight="bold" font-size="24" fill="#00fff7" text-anchor="middle" dominant-baseline="middle">
+    <text x="100" y="105" filter="url(#neonGlow)">AI</text>
+  </g>
+</svg>
