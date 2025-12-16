@@ -176,7 +176,7 @@ const config: Config = {
     // In production, this will be 'production', during preview it will be 'preview'
     // Set your deployed backend URL here (using Railway backend)
     apiBaseUrl: process.env.VERCEL_ENV
-      ? process.env.API_BASE_URL || 'https://my-qwen-project-production.up.railway.app' // Your deployed Railway backend URL
+      ? process.env.API_BASE_URL || 'https://my-qwen-project-production-9ad9.up.railway.app' // Your deployed Railway backend URL
       : process.env.API_BASE_URL || 'http://localhost:8000',
   },
 };
