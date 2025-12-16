@@ -14,5 +14,7 @@
       "dest": "/index.html"
     }
   ],
-  "regions": ["hnd1"]
+  "regions": ["hnd1"],
+  "buildCommand": "npm install && npm run build",
+  "outputDirectory": "build"
 }
