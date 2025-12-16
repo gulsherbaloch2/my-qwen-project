@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "node scripts/start-with-locale-fix.js",
-    "build": "cross-env NODE_OPTIONS=--max-old-space-size=4096 docusaurus build",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
