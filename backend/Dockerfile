@@ -5,6 +5,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Copy only the backend directory contents to the root of the container
 COPY . .
 
 EXPOSE 8000
