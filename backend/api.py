@@ -36,6 +36,10 @@ class ChatResponse(BaseModel):
 def read_root():
     return {"message": "AI Assistant Backend is running!"}
 
+@app.get("/health")
+def health_check():
+    return {"status": "healthy", "message": "AI Assistant Backend is running!"}
+
 @app.post("/chat", response_model=ChatResponse)
 async def chat_endpoint(request: ChatRequest):
     try:
@@ -44,16 +48,32 @@ async def chat_endpoint(request: ChatRequest):
         if not query:
             raise HTTPException(status_code=400, detail="Query is required")
 
-        # Query the Qdrant database using the existing function
-        search_results = query_qdrant(query)
+        # Try to query the Qdrant database using the existing function
+        try:
+            search_results = query_qdrant(query)
+        except Exception as e:
+            # Log the error but return a meaningful message to the client
+            import logging
+            logging.error(f"Error querying Qdrant: {str(e)}")
+            raise HTTPException(status_code=500, detail=f"Unable to connect to the knowledge base: {str(e)}")
 
         # Format the response using the existing function
-        response = format_response(query, search_results)
+        try:
+            response = format_response(query, search_results)
+        except Exception as e:
+            import logging
+            logging.error(f"Error formatting response: {str(e)}")
+            raise HTTPException(status_code=500, detail=f"Error generating response: {str(e)}")
 
         return ChatResponse(response=response)
 
+    except HTTPException:
+        # Re-raise HTTP exceptions as they are
+        raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        import logging
+        logging.error(f"Unexpected error in chat endpoint: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {str(e)}")
 
 if __name__ == "__main__":
     import uvicorn
