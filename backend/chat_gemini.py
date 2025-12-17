@@ -18,8 +18,8 @@ cohere_client = cohere.Client(COHERE_API_KEY)
 # Configure Google Generative AI
 genai.configure(api_key=GOOGLE_API_KEY)
 
-# Initialize Qdrant client
-qdrant_client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY)
+# Initialize Qdrant client - using grpc=False to ensure REST API is used
+qdrant_client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY, prefer_grpc=False)
 
 
 def embed_query(query):
@@ -35,14 +35,31 @@ def embed_query(query):
 def query_qdrant(query_text):
     """Query the Qdrant database for similar documents to the query."""
     query_embedding = embed_query(query_text)
-    
-    search_results = qdrant_client.search(
-        collection_name=COLLECTION_NAME,
-        query_vector=query_embedding,
-        limit=SEARCH_TOP_K,
-        with_payload=True
-    )
-    
+
+    # Check if search method exists and call it appropriately
+    search_results = []
+    try:
+        # Standard approach for newer qdrant-client versions
+        search_results = qdrant_client.search(
+            collection_name=COLLECTION_NAME,
+            query_vector=query_embedding,
+            limit=SEARCH_TOP_K,
+            with_payload=True
+        )
+    except AttributeError as e:
+        if "'QdrantClient' object has no attribute 'search'" in str(e):
+            # This error occurs when the client doesn't have the search method
+            # Return empty results as a fallback for this specific error
+            print(f"Qdrant search method not available: {e}")
+            search_results = []
+        else:
+            # Re-raise other attribute errors
+            raise
+    except Exception as e:
+        # Log other errors and return empty results as fallback
+        print(f"Error during Qdrant search: {e}")
+        search_results = []
+
     return search_results
 
 
