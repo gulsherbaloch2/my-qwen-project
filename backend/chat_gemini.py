@@ -6,7 +6,7 @@ from qdrant_client import QdrantClient
 from qdrant_client.models import VectorParams, Distance, SearchParams
 from qdrant_client.http import models
 from config import (
-    GOOGLE_API_KEY, COHERE_API_KEY, QDRANT_URL, QDRANT_API_KEY,
+    GEMINI_API_KEY, COHERE_API_KEY, QDRANT_URL, QDRANT_API_KEY,
     COLLECTION_NAME, SEARCH_TOP_K, MAX_TOKENS_RESPONSE, TEMPERATURE
 )
 import cohere
@@ -16,7 +16,7 @@ import cohere
 cohere_client = cohere.Client(COHERE_API_KEY)
 
 # Configure Google Generative AI
-genai.configure(api_key=GOOGLE_API_KEY)
+genai.configure(api_key=GEMINI_API_KEY)
 
 # Initialize Qdrant client - using grpc=False to ensure REST API is used
 qdrant_client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY, prefer_grpc=False)
@@ -39,6 +39,16 @@ def query_qdrant(query_text):
     # Check if search method exists and call it appropriately
     search_results = []
     try:
+        # Check if the collection exists before searching
+        collection_exists = False
+        try:
+            collection_info = qdrant_client.get_collection(collection_name=COLLECTION_NAME)
+            collection_exists = True
+            print(f"Collection exists with {collection_info.point_count} points")
+        except Exception as e:
+            print(f"Collection {COLLECTION_NAME} does not exist or is inaccessible: {e}")
+            return []  # Return empty if collection doesn't exist
+
         # Standard approach for newer qdrant-client versions
         search_results = qdrant_client.search(
             collection_name=COLLECTION_NAME,
