@@ -5,9 +5,13 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy only the backend directory contents to the root of the container
+# Copy backend files
 COPY . .
+
+# Copy docs from the docusaurus site
+COPY ../my-docusaurus-site/docs ./docs
 
 EXPOSE 8000
 
-CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
+# Run document ingestion first, then start the API server
+CMD ["sh", "-c", "python backend/main.py ingest && uvicorn api:app --host 0.0.0.0 --port 8000"]

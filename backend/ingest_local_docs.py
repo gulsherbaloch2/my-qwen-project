@@ -109,8 +109,9 @@ def save_chunk_to_qdrant(chunk, chunk_id, source_file):
     )
 
 def ingest_local_docs():
-    # Get all markdown files from the docs directory
+    # Get all markdown files from the docs directory (now copied to root level during build)
     docs_path = os.path.join(os.path.dirname(__file__), '..', 'docs')
+
     md_files = glob.glob(os.path.join(docs_path, '**', '*.md'), recursive=True)
     
     print(f"Found {len(md_files)} markdown files in docs directory")
