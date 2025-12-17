@@ -92,20 +92,13 @@ def format_response(query, search_results):
     """
     
     # Use the Gemini model to generate a response
-    # Using gemini-1.5-flash which is generally available, fallback to gemini-1.0 if needed
-    try:
-        model = genai.GenerativeModel('gemini-1.5-flash')
-        response = model.generate_content(
-            prompt,
-            generation_config=genai.types.GenerationConfig(
-                max_output_tokens=MAX_TOKENS_RESPONSE,
-                temperature=TEMPERATURE
-            )
-        )
-    except Exception as e:
-        # If gemini-1.5-flash is not available, try gemini-1.0-pro
+    # Using models that are typically available, with fallbacks
+    model_name = None
+    available_models = ['gemini-1.5-flash', 'gemini-1.0-pro', 'gemini-pro']
+
+    for name in available_models:
         try:
-            model = genai.GenerativeModel('gemini-1.0-pro')
+            model = genai.GenerativeModel(name)
             response = model.generate_content(
                 prompt,
                 generation_config=genai.types.GenerationConfig(
@@ -113,8 +106,13 @@ def format_response(query, search_results):
                     temperature=TEMPERATURE
                 )
             )
-        except Exception as e2:
-            # If both models fail, return an error message
-            raise Exception(f"Unable to generate response with any available model: {str(e)}, {str(e2)}")
+            model_name = name
+            break  # Use the first working model
+        except Exception as e:
+            continue  # Try the next model
+
+    # If no model worked, raise an error
+    if model_name is None:
+        raise Exception(f"Unable to generate response with any available model. Tried: {available_models}")
     
     return response.text
