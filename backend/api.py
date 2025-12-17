@@ -40,6 +40,26 @@ async def startup_event():
         print("Ensuring Qdrant collection exists...")
         create_collection()  # This creates or recreates the collection
         print("Qdrant collection ensured.")
+
+        # Attempt to ingest documents if collection is empty
+        # Import here to avoid circular imports during app init
+        from qdrant_client import QdrantClient
+        from config import QDRANT_URL, QDRANT_API_KEY, COLLECTION_NAME
+
+        qdrant_client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY, prefer_grpc=False)
+
+        try:
+            collection_info = qdrant_client.get_collection(collection_name=COLLECTION_NAME)
+            if collection_info.point_count == 0:
+                print("Collection is empty, starting document ingestion...")
+                from ingest_local_docs import ingest_local_docs
+                documents_indexed = ingest_local_docs()
+                print(f"Document ingestion completed. Indexed {documents_indexed} documents.")
+            else:
+                print(f"Collection already has {collection_info.point_count} points, skipping ingestion.")
+        except Exception as e:
+            print(f"Error checking or ingesting documents: {e}")
+
     except Exception as e:
         import logging
         logging.error(f"Error ensuring Qdrant collection exists: {str(e)}")
