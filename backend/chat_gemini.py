@@ -92,13 +92,29 @@ def format_response(query, search_results):
     """
     
     # Use the Gemini model to generate a response
-    model = genai.GenerativeModel('gemini-pro')
-    response = model.generate_content(
-        prompt,
-        generation_config=genai.types.GenerationConfig(
-            max_output_tokens=MAX_TOKENS_RESPONSE,
-            temperature=TEMPERATURE
+    # Using gemini-1.5-flash which is generally available, fallback to gemini-1.0 if needed
+    try:
+        model = genai.GenerativeModel('gemini-1.5-flash')
+        response = model.generate_content(
+            prompt,
+            generation_config=genai.types.GenerationConfig(
+                max_output_tokens=MAX_TOKENS_RESPONSE,
+                temperature=TEMPERATURE
+            )
         )
-    )
+    except Exception as e:
+        # If gemini-1.5-flash is not available, try gemini-1.0-pro
+        try:
+            model = genai.GenerativeModel('gemini-1.0-pro')
+            response = model.generate_content(
+                prompt,
+                generation_config=genai.types.GenerationConfig(
+                    max_output_tokens=MAX_TOKENS_RESPONSE,
+                    temperature=TEMPERATURE
+                )
+            )
+        except Exception as e2:
+            # If both models fail, return an error message
+            raise Exception(f"Unable to generate response with any available model: {str(e)}, {str(e2)}")
     
     return response.text
