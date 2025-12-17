@@ -67,30 +67,40 @@ def format_response(query, search_results):
     """Format the response using Google Gemini based on query and search results."""
     # Prepare context from search results
     context_parts = []
-    for result in search_results:
-        text = result.payload.get('text', '')
-        source = result.payload.get('source_file', 'Unknown source')
-        score = result.score
-        
-        context_parts.append(f"Source: {source}\nRelevance Score: {score}\nContent: {text}\n---")
-    
+
+    # Check if search_results exist and have content
+    if search_results:
+        for result in search_results:
+            # Handle different possible structures of result objects
+            if hasattr(result, 'payload'):
+                text = result.payload.get('text', '') if result.payload else ''
+                source = result.payload.get('source_file', 'Unknown source') if result.payload else 'Unknown source'
+            else:
+                # If result is a dict or other format
+                text = result.get('text', '') if isinstance(result, dict) else ''
+                source = result.get('source_file', 'Unknown source') if isinstance(result, dict) else 'Unknown source'
+
+            score = getattr(result, 'score', 0) if hasattr(result, 'score') else result.get('score', 0) if isinstance(result, dict) else 0
+
+            context_parts.append(f"Source: {source}\nRelevance Score: {score}\nContent: {text}\n---")
+
     combined_context = "\n".join(context_parts)
-    
+
     # Create a prompt for Gemini that includes the context
     prompt = f"""
     You are an AI assistant for the Physical AI & Humanoid Robotics Curriculum.
     Answer the user's query based on the provided context from the curriculum.
     If the context doesn't contain relevant information, politely say that you don't have enough information to answer the query.
-    
+
     Context:
     {combined_context}
-    
+
     User Query:
     {query}
-    
+
     Response:
     """
-    
+
     # Use the Gemini model to generate a response
     # Using models that are typically available, with fallbacks
     model_name = None
@@ -111,8 +121,8 @@ def format_response(query, search_results):
         except Exception as e:
             continue  # Try the next model
 
-    # If no model worked, raise an error
+    # If no model worked, provide a fallback response instead of failing
     if model_name is None:
-        raise Exception(f"Unable to generate response with any available model. Tried: {available_models}")
-    
+        return "I'm sorry, but I'm currently unable to generate a response. The AI service might be unavailable. Please try again later."
+
     return response.text
