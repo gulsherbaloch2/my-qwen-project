@@ -153,6 +153,27 @@ async def admin_status():
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error checking status: {str(e)}")
 
+
+@app.get("/debug/docs")
+async def debug_docs():
+    """Debug endpoint to check if docs directory exists and its contents"""
+    import os
+
+    docs_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'docs')
+    if os.path.exists(docs_path):
+        files = os.listdir(docs_path)
+        return {
+            "docs_exists": True,
+            "file_count": len(files),
+            "files": files
+        }
+    else:
+        return {
+            "docs_exists": False,
+            "file_count": 0,
+            "files": []
+        }
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=5000)
