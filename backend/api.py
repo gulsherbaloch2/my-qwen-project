@@ -12,7 +12,7 @@ from secure_config import validate_config
 validate_config()
 
 from chat_gemini import query_qdrant, format_response
-from ingest_local_docs import ingest_local_docs
+from ingest_local_docs import ingest_local_docs, create_collection
 
 # Create FastAPI app
 app = FastAPI(title="AI Assistant Backend", description="Backend API for Docusaurus AI Assistant")
@@ -32,6 +32,18 @@ class ChatRequest(BaseModel):
 
 class ChatResponse(BaseModel):
     response: str
+
+@app.on_event("startup")
+async def startup_event():
+    """Ensure Qdrant collection exists on startup"""
+    try:
+        print("Ensuring Qdrant collection exists...")
+        create_collection()  # This creates or recreates the collection
+        print("Qdrant collection ensured.")
+    except Exception as e:
+        import logging
+        logging.error(f"Error ensuring Qdrant collection exists: {str(e)}")
+        # Continue even if collection creation fails
 
 @app.get("/")
 def read_root():
